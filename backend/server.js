@@ -1,14 +1,9 @@
 import express from 'express'
-
+import router from './routes/productRoute.js'
 const app = express()
-app.get('/test', (req, res) => {
-    let product ={
-        name: 'iPhone 11',
-        title:'hello world',
-    }
-  res.send(product)
-})
+const PORT = 8000
 
-app.listen(8000, () => {
-  console.log(`Example app listening on port 8000`)
+app.use('/', router)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port  ${PORT}`)
 })
